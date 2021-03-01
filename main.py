@@ -28,8 +28,9 @@ expected_errMsg = "Incorrect username or password."
 assert expected_errMsg == actual_errMsg
 
 """ SCENARIO 3
-- Verify that inserting m.ie into email field in reset_password page displays message "Can't find
-that email, sorry."
+- Verify that inserting m.ie into email field in reset_password page displays message 
+"That address is not a verified primary email or is not associated with a personal user account. 
+Organization billing emails are only for notifications"
 """
 driver.find_element_by_link_text("Forgot password?").click()
 driver.find_element_by_id('email_field').send_keys("m.ie")
@@ -44,7 +45,8 @@ else:
 
 """ SCENARIO 4
 Verify that inserting empty value into email field in reset_password page displays message
-"Can't find that email, sorry."
+"That address is not a verified primary email or is not associated with a personal user account. 
+Organization billing emails are only for notifications"
 """
 driver.find_element_by_name('commit').click()
 actual_errMsg = driver.find_element_by_xpath("//div[@class='container-lg px-2']").text
